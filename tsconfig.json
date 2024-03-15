@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "declaration": false,
+    "module": "NodeNext",
+    "sourceMap": true,
+    "moduleResolution": "NodeNext",
+    "removeComments": false,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "ts-node": {
+    "files": true,
+    "esm": true,
+  },
+   "files": [
+   "src/interfaces/global.d.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "coverage",
+    "bin"
+  ]
+}
