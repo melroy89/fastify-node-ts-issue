@@ -23,11 +23,11 @@
     "src/**/*.ts",
   ],
   "ts-node": {
-    "files": true,
     "esm": true,
+    "swc": true,
   },
    "files": [
-   "src/interfaces/global.d.ts",
+   "src/fastify.d.ts",
   ],
   "exclude": [
     "node_modules",

@@ -1,24 +1,18 @@
-# Fastify ESM + Node-TS
+# TypeScript + Fastify ESM + Node-TS Demo
 
-Reproduction scenario repository showing the Fastify issue with `Node-ts/esm`.
+Working [TypeScript](https://www.typescriptlang.org/) + [SWC](https://swc.rs/) + [Fastify](https://fastify.dev/) + ES Modules + [Node-TS](https://www.npmjs.com/ts-node) demo. See workaround below.
 
 First install deps via: `npm install`
 
-Try to excute: `npm run dev` (Gives error: `cannot use import statement outside a module`).
+Try to excute: `npm run dev` (this will use Node-TS + SWC)
 
-`npm run dev` executes [nodemon](nodemon.json)  which then execute the following line in the [`package.json` file](./package.json):
+Or run: `npm start`
 
-```sh
-FASTIFY_AUTOLOAD_TYPESCRIPT=1 node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts
-```
-
-Yes. I'm already using `FASTIFY_AUTOLOAD_TYPESCRIPT=1`.
-
-**Note:** You will notice that: `npm start` works just fine (just `tsc` without node-ts). Meaning Typescript code is correct.
+A fast build using [SWC](https://swc.rs/), run: `npm run build`. If you want to use TSC compiler use: `npm run build:prod`, which does validate types.
 
 ---
 
-_EDIT:_ Workaround is currently to also set `VITEST=true` to force ESM in [Fastify-autoloader](https://github.com/fastify/fastify-autoload). So it becomes:
+_WORKAROUND:_ We currently apply a workaround by setting `VITEST=true` to force ESM in [Fastify-autoloader](https://github.com/fastify/fastify-autoload). So `npm run dev` is using:
 
 ```sh
 FASTIFY_AUTOLOAD_TYPESCRIPT=1 VITEST=true node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts
