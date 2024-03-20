@@ -1,5 +1,5 @@
 import { Server } from './server.js'
-const port = normalizePort(process.env.PORT || '3001') // Default port
+const port = normalizePort(process.env.PORT || '3000') // Default port
 const hostname = process.env.HOST || '0.0.0.0' // Default host: listen on all interfaces
 
 const server = await Server.bootstrap()

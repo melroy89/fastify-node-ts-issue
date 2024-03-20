@@ -86,7 +86,11 @@ export class Server {
     this.app.register(autoLoad, {
       dir: path.join(__dirname, 'routes'),
       // routeParams: true
-      // dirNameRoutePrefix: false
+    })
+
+    // Load plugins
+    this.app.register(autoLoad, {
+      dir: path.join(__dirname, 'plugins')
     })
   }
 }

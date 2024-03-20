@@ -1,16 +1,14 @@
 import { FastifyPluginAsync } from 'fastify'
-import { FastifyRequest, FastifyReply } from 'fastify'
+import userHandler from '../../handlers/user.js'
 
-import userRepository from '../../repositories/userRepository.js'
+const apiRoutes: FastifyPluginAsync = async (instance) => {
+  // API root
+  instance.get('/', (req, reply) =>
+    reply.send({ message: 'Welcome to the root API end-point. We have a users end-point, go to: /users' }))
 
-const apiRoutes: FastifyPluginAsync = async (instance, opts) => {
-  const userRepo = userRepository(instance)
-
-  // Simple demo example
-  instance.get('/', opts, (req: FastifyRequest, reply: FastifyReply) => {
-    const obj = userRepo.getUser()
-    reply.send(obj)
-  })
+  // API routes
+  instance.register(userHandler, { prefix: '/users' })
+  // ... other routes ...
 }
 
 export default apiRoutes

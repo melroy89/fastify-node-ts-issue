@@ -8,6 +8,8 @@ Try to excute: `npm run dev` (this will use Node-TS + SWC)
 
 Or run: `npm start`
 
+Finally, go to: http://localhost:3000
+
 A fast build using [SWC](https://swc.rs/), run: `npm run build`. If you want to use TSC compiler use: `npm run build:prod`, which does validate types.
 
 ---
