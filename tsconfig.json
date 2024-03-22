@@ -10,7 +10,7 @@
     "sourceMap": true,
     "moduleResolution": "NodeNext",
     "removeComments": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

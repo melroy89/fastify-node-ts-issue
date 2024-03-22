@@ -24,7 +24,9 @@ export class Server {
     * @constructor
     */
   constructor() {
-    const envToLogger = {
+    const envToLogger: {
+      [key: string]: object | boolean
+    } = {
       development: {
         level: 'info',
         transport: {
@@ -38,10 +40,12 @@ export class Server {
       production: true,
       test: false,
     }
+
     this.app = Fastify({
-      logger: envToLogger[environment] ?? true
+      logger: envToLogger[environment] ?? true,
     })
   }
+
 
   /**
    * Bootstrap the application.
